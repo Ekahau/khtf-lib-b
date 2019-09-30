@@ -29,13 +29,14 @@ plugins {
 
 group 'com.ekahau.prototypes.khtf'
 
+def mavenRepo = findProperty('khtfmavenrepo')
 
 repositories {
     jcenter()
     mavenCentral()
     maven { url "https://dl.bintray.com/kotlin/kotlin-dev" }
     maven { url "https://dl.bintray.com/kotlin/kotlin-eap" }
-    maven { url findProperty('khtfmavenrepo')?:"" }
+    maven { url mavenRepo?"${mavenRepo}/releases":"" }
 }
 
 kotlin {
@@ -127,7 +128,6 @@ jvmTest {
 === publish jar to nexus ===
  */
 // default values, override them in USER\.gradle\gradle.properties with your credentials
-def mavenRepo = findProperty('khtfmavenrepo')
 publishing {
     publications {
         jvm {

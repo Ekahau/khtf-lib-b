@@ -7,7 +7,7 @@ class SummatorTest {
 
     @Test
     fun testSum() {
-        assertEquals(12, Summator().sum(1, 2))
+        assertEquals(12, Summator.sum(1, 2))
     }
 
 }
